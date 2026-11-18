@@ -9,14 +9,9 @@ btnTroca.addEventListener('click', () => {
     visitante.style.color = "red"
 })
 
-
 btnTroca.addEventListener('keypress', function(){
     visitante.style.backgroundColor = "black"
 })
-
-
-
-
 
 let caixa = document.querySelector("#caixa")
 let btnVerde = document.querySelector("#btn_verde")
@@ -59,21 +54,39 @@ btnSoma.addEventListener('click',() => valor.textContent ++)
 
 
 
-const nomeLivro = document.querySelector("#nome_livro")
-const adicionarLivro = document.querySelector("#adiciona_livro")
+const nomeLivro = document.getElementById("nome_livro")
+const btnAdicionar =document.getElementById("adiciona_livro")
 
-let listaLivros = document.querySelector("#lista_livros")
+const listaLivros = document.getElementById("lista_livros")
+const btnRemover = document.getElementById("remover_livro")
 
-adicionarLivro.addEventListener('click',() => {
-    let novoLivro = document.createElement("li").textContent = nomeLivro.value
+btnAdicionar.addEventListener('click', () => {
+
+    let nomeLivroFormatado = nomeLivro.value.trim()
+    
+    if(nomeLivroFormatado == ""){
+        alert("digite algo")
+    }else{
+    const novoLivro = document.createElement("li")
+    novoLivro.textContent = nomeLivroFormatado
+
+
+    const btnX = document.createElement("button")
+    btnX.textContent = "X"
+    btnX.classList.add("btn_x")
+    novoLivro.appendChild(btnX)
 
     listaLivros.appendChild(novoLivro)
 
-    nomeLivro.value = ""
-
+    btnX.addEventListener('click', () => {novoLivro.remove()})
+    }
+    nomeLivroFormatado = ""
 })
 
 
+btnRemover.addEventListener("click", () => {
+    listaLivros.innerHTML = ""
+})
 
 
 

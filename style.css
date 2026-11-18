@@ -81,7 +81,11 @@ li{
 
 
 .btn_x{
+
     color: red;
     border: none;
-    background-color: transparent;
+    background-color: white;
+    padding:  0 5px;
+    border-radius: 20px;
+    box-shadow: 0 0 5px 0;
 }
